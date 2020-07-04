@@ -1,0 +1,82 @@
+//variables
+
+$block-width: 260px;
+$block-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) ;
+
+//mixins
+
+@mixin block-top {
+    width: $block-width;
+    height: 220px;
+    padding: 10px;
+    border-radius: 15px 15px 0px 0px;
+    background-color: white;
+    color: grey;
+    box-shadow: $block-shadow;
+}
+
+@mixin block-bottom {
+    width: $block-width;
+    height: 80px;
+    border-top:none ;
+    padding: 10px;
+    border-radius: 0px 0px 15px 15px;
+    font-size: small;
+    background-color: #686de0;
+    box-shadow: $block-shadow;
+}
+
+@mixin block-img {
+    width: 25%;
+    margin-top: -40px;
+    margin-left: 100px;
+    border-radius: 100px;
+    border: solid 4px white;
+}
+
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: 50px;
+    .block {
+        grid-column: 2 / 3;
+        grid-row: 2;
+    }
+}
+
+.block__top{
+    @include block-top();
+    .block__top__text {
+        padding: 10px 20px;
+        line-height: 30px;
+        h1 {
+            font-size: .8em;
+        }
+    }
+}
+
+.bottom{
+   @include block-bottom();
+    .bottom__img {
+        @include block-img();
+    }
+    p {
+        text-align: center;
+        padding: 2px 20px;
+        line-height: 1px;
+        font-weight: bold;
+    }
+    p:nth-child(2) {
+    color: white;}
+    
+    .bottom p:nth-child(3) {
+    color: lightgray;}
+}
+
+
+
+

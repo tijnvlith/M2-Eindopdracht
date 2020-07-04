@@ -1,0 +1,350 @@
+
+    //variables
+
+$i-width: 500px;
+$i-height: 500px;
+$i-left: 0;
+
+
+
+    //mixins
+
+@mixin i {
+    position: relative;
+    width: $i-width;
+    height: $i-height;
+
+    .i__overlay {
+        @include i-overlay();
+    }
+
+    .i__img {
+        @include i-img();
+    }
+
+    .i__button {
+        @include i-button();
+        a {
+            @include i-button-a();
+          }}
+}
+
+@mixin i-overlay {
+    position: absolute;
+    top: 0;
+    left: $i-left;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.5s ease;
+    border-radius: 20px;
+}
+
+@mixin i-img {
+    position: absolute;
+    width: $i-width;
+    height: $i-height;
+    left: $i-left;
+    border-radius: 20px;
+}
+
+@mixin i-button {
+    position: absolute;
+    width: $i-width;
+    left:$i-left;
+    top: 230px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+@mixin i-button-a {
+    width: 200px;
+    padding: 12px 48px;
+    text-align: center;
+    color: white;
+    border: solid 2px white;
+    background-color: black;
+    z-index: 1;
+}
+
+@mixin i-hover-overlay {
+    display: block;
+    background: rgb(83, 83, 83 );
+}
+
+@mixin i-hover-button {
+    opacity: 1;
+}
+
+
+    //img 1
+
+.i-1 {
+
+    @include i();
+    grid-column: 1 / 1;
+    grid-row: 2;
+    }
+  
+.i-1:hover .i__overlay {
+    @include i-hover-overlay();
+}
+  
+.i-1:hover .i__button {
+    @include i-hover-button();
+}
+
+
+
+    //img 2
+
+.i-2 {
+
+    @include i();
+    grid-column: 2 / 2;
+    grid-row: 2;
+    }
+  
+.i-2:hover .i__overlay {
+    @include i-hover-overlay();
+}
+  
+.i-2:hover .i__button {
+    @include i-hover-button();
+}
+
+
+
+    //img 3
+
+.i-3 {
+
+    @include i();
+    grid-column: 3 / 3;
+    grid-row: 2;
+    }
+  
+.i-3:hover .i__overlay {
+    @include i-hover-overlay();
+}
+  
+.i-3:hover .i__button {
+    @include i-hover-button();
+}
+
+
+
+    //img 4
+
+.i-4 {
+
+    @include i();
+    grid-column: 1 / 1;
+    grid-row: 3;
+    }
+  
+.i-4:hover .i__overlay {
+    @include i-hover-overlay();
+}
+  
+.i-4:hover .i__button {
+    @include i-hover-button();
+}
+
+
+
+    //img 5
+
+.i-5 {
+
+    @include i();
+    grid-column: 2 / 2;
+    grid-row: 3;
+    }
+  
+.i-5:hover .i__overlay {
+    @include i-hover-overlay();
+}
+  
+.i-5:hover .i__button {
+    @include i-hover-button();
+}
+
+
+
+    //img 6
+
+.i-6 {
+
+    @include i();
+    grid-column: 3 / 3;
+    grid-row: 3;
+    }
+  
+.i-6:hover .i__overlay {
+    @include i-hover-overlay();
+}
+  
+.i-6:hover .i__button {
+    @include i-hover-button();
+}
+
+
+
+    //img7
+
+.i-7 {
+
+    @include i();
+    grid-column: 1 / 1;
+    grid-row: 4;
+    }
+  
+.i-7:hover .i__overlay {
+    @include i-hover-overlay();
+}
+  
+.i-7:hover .i__button {
+    @include i-hover-button();
+}
+
+
+    //positioning
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 0px repeat(4,1fr);  
+    column-gap: 0px;
+    row-gap: 60px;
+    justify-items: center;
+}
+
+@media (max-width: 1700px) {
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: 0px repeat(5,1fr); 
+
+}
+.i-1 {
+
+    grid-column: 1 / 1;
+    grid-row: 2;
+    }
+  
+    //img 2
+
+.i-2 {
+
+    grid-column: 2 / 2;
+    grid-row: 2;
+    }
+
+    //img 3
+
+.i-3 {
+
+    grid-column: 1 / 1;
+    grid-row: 3;
+    }
+
+    //img 4
+
+.i-4 {
+
+    grid-column: 2 / 2;
+    grid-row: 3;
+    }
+
+    //img 5
+
+.i-5 {
+
+    grid-column: 1 / 1;
+    grid-row: 4;
+    }
+
+    //img 6
+
+.i-6 {
+
+    grid-column: 2 / 2;
+    grid-row: 4;
+    }
+
+    //img7
+
+.i-7 {
+
+    grid-column: 1 / 1;
+    grid-row: 5;
+    }
+
+}
+
+@media (max-width: 1100px) {
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: 0px repeat(7,1fr); 
+
+}
+.i-1 {
+
+    grid-column: 1 / 1;
+    grid-row: 2;
+    }
+  
+    //img 2
+
+.i-2 {
+
+    grid-column: 1 / 1;
+    grid-row: 3;
+    }
+
+    //img 3
+
+.i-3 {
+
+    grid-column: 1 / 1;
+    grid-row: 4;
+    }
+
+    //img 4
+
+.i-4 {
+
+    grid-column: 1 / 1;
+    grid-row: 5;
+    }
+
+    //img 5
+
+.i-5 {
+
+    grid-column: 1 / 1;
+    grid-row: 6;
+    }
+
+    //img 6
+
+.i-6 {
+
+    grid-column: 1 / 1;
+    grid-row: 7;
+    }
+
+    //img7
+
+.i-7 {
+
+    grid-column: 1 / 1;
+    grid-row: 8;
+    }
+
+}
